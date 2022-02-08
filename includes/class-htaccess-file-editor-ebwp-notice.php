@@ -32,6 +32,7 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 	protected $user_id                = 0;
 	protected $expire_after_transient = '';
 	protected $install_activate       = false;
+	protected $user_consent           = true;
 
 	/**
 	 * Init class.
@@ -99,6 +100,11 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 	 * @return void
 	 */
 	protected function install_and_activate() {
+
+		if ( ! isset( $_POST['user_consent'] ) ) {
+			$this->user_consent = false;
+			return;
+		}
 
 		$plugins_dir = WP_PLUGIN_DIR;
 
@@ -228,6 +234,11 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 		}
 
 		$status = $this->get_plugin_status();
+
+		if ( 'active' === $status ) {
+			return;
+		}
+
 		/**
 		 * If we are here, then lets disturb our user :D.
 		 */
@@ -244,21 +255,29 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 							<button name="install" value="1"  class="button button-install"><?php esc_html_e( 'Install & Activate', 'htaccess-file-editor' ); ?></button>
 							<button name="remind" value="1"  class="button"><?php esc_html_e( 'Remind me later', 'htaccess-file-editor' ); ?></button>
 
-							<label for="user-consent">
-								<input type="checkbox" name="user_consent" id="user-consent" required>
+							<label class="user-consent" for="user-consent">
+								<input type="checkbox" name="user_consent" id="user-consent">
 								<span><?php esc_html_e( '* By clicking "Install & Activate" button, you agree to install and activate "Everest Backup" plugin in your website.', 'htaccess-file-editor' ); ?></span>
+								<?php
+								if ( ! $this->user_consent ) {
+									?>
+									<p style="color:red;">
+										<strong><?php esc_html_e( '*This field is required' ); ?></strong>
+									</p>
+									<?php
+								}
+								?>
 							</label>
 							<?php
-						} elseif ( 'active' === $status ) {
-							$activation_link = 'https://wpeverestbackup.com/';
-							?>
-							<a href="<?php echo esc_url( network_admin_url( '/admin.php?page=everest-backup-export' ) ); ?>" class="button button-install"><?php esc_html_e( 'Backup Site', 'htaccess-file-editor' ); ?></a>
-							<a target="_blank" href="<?php echo esc_url( $activation_link ); ?>" class="button"><?php esc_html_e( 'View More Detail', 'htaccess-file-editor' ); ?></a>
-							<?php
 						} else {
+
+							/**
+							 * If we are here then plugin is installed but yet not activated.
+							 */
+
 							$activation_link = $this->get_plugin_activation_link();
 							?>
-						<a href="<?php echo esc_url( $activation_link ); ?>" class="button button-install"><?php esc_html_e( 'Activate Plugin', 'htaccess-file-editor' ); ?></a>
+							<a href="<?php echo esc_url( $activation_link ); ?>" class="button button-install"><?php esc_html_e( 'Activate Plugin', 'htaccess-file-editor' ); ?></a>
 							<?php
 						}
 						?>
