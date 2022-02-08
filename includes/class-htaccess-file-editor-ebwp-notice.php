@@ -266,7 +266,7 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 										}
 										label.user-consent:after {
 											position: absolute;
-											content: '*This field is required!';
+											content: '<?php esc_html_e( '*This field is required!', 'htaccess-file-editor' ); ?>';
 											background: red;
 											top: -8px;
 											left: 0;
@@ -286,9 +286,6 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 											transform: rotate(45deg);
 										}
 									</style>
-									<!-- <p style="color:red;">
-										<strong><?php //esc_html_e( '*This field is required' ); ?></strong>
-									</p> -->
 									<?php
 								}
 								?>
