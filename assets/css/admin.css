@@ -97,9 +97,6 @@ div.wrap div.htaccess-file-editor-infobox {
   aside.htaccess-file-editor-sidebar
   .btn-group {
   background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: start;
   padding: 16px 20px 20px;
   margin-top: -4px;
 }
@@ -110,7 +107,7 @@ div.wrap div.htaccess-file-editor-infobox {
   .button {
   font-size: 18px;
   border-radius: 3px;
-  padding: 7px 25px;
+  padding: 7px 20px;
   margin-right: 20px;
 }
 
@@ -121,4 +118,14 @@ div.wrap div.htaccess-file-editor-infobox {
   background: linear-gradient(90deg, #0c60dc, #e71186);
   color: #ffffff;
   border: none;
+}
+
+.htaccess-file-editor-main-container
+  aside.htaccess-file-editor-sidebar
+  .btn-group
+  label.user-consent {
+  display: flex;
+  align-items: center;
+  margin: 0 0 16px;
+  gap: 10px;
 }

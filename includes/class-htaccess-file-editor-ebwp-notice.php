@@ -255,7 +255,7 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 
 							<label class="user-consent" for="user-consent">
 								<input type="checkbox" name="user_consent" id="user-consent">
-								<span><?php esc_html_e( '* By clicking "Install & Activate" button, you agree to install and activate "Everest Backup" plugin in your website.', 'htaccess-file-editor' ); ?></span>
+								<span><?php esc_html_e( 'By clicking "Install & Activate" button, you agree to install and activate "Everest Backup" plugin in your website.', 'htaccess-file-editor' ); ?></span>
 								<?php
 								if ( ! $this->user_consent ) {
 									?>
