@@ -1,3 +1,6 @@
+#wpbody-content {
+  padding-bottom: 191px;
+}
 h2.htaccess-file-editor-title {
   background: url(../images/icon.png) no-repeat left top 61%;
   padding: 0 0 0 26px !important;
