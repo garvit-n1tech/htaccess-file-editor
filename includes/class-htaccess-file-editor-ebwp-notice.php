@@ -252,8 +252,6 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 							wp_nonce_field( self::KEY_SUBMIT, self::KEY_SUBMIT );
 						if ( 'not-installed' === $status ) {
 							?>
-							<button name="install" value="1"  class="button button-install"><?php esc_html_e( 'Install & Activate', 'htaccess-file-editor' ); ?></button>
-							<button name="remind" value="1"  class="button"><?php esc_html_e( 'Remind me later', 'htaccess-file-editor' ); ?></button>
 
 							<label class="user-consent" for="user-consent">
 								<input type="checkbox" name="user_consent" id="user-consent">
@@ -268,6 +266,9 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 								}
 								?>
 							</label>
+
+							<button name="install" value="1"  class="button button-install"><?php esc_html_e( 'Install & Activate', 'htaccess-file-editor' ); ?></button>
+							<button name="remind" value="1"  class="button"><?php esc_html_e( 'Remind me later', 'htaccess-file-editor' ); ?></button>
 							<?php
 						} else {
 
