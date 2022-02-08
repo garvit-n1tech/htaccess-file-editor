@@ -129,3 +129,11 @@ div.wrap div.htaccess-file-editor-infobox {
   margin: 0 0 16px;
   gap: 10px;
 }
+
+.htaccess-file-editor-main-container
+  aside.htaccess-file-editor-sidebar
+  .btn-group
+  label.user-consent
+  span {
+  color: #666666;
+}
