@@ -259,9 +259,36 @@ class  Htaccess_File_Editor_Ebwp_Notice {
 								<?php
 								if ( ! $this->user_consent ) {
 									?>
-									<p style="color:red;">
-										<strong><?php esc_html_e( '*This field is required' ); ?></strong>
-									</p>
+									<style>
+										.user-consent {
+											position: relative;
+											padding: 20px 5px 0px;
+										}
+										label.user-consent:after {
+											position: absolute;
+											content: '*This field is required!';
+											background: red;
+											top: -8px;
+											left: 0;
+											padding: 2px 5px;
+											color: #ffffff;
+										}
+										label.user-consent:before {
+											position: absolute;
+											content: '';
+											background: #ff0000;
+											width: 7px;
+											height: 7px;
+											top: 11px;
+											left: 8px;
+											color: #ffffff;
+											z-index: 1;
+											transform: rotate(45deg);
+										}
+									</style>
+									<!-- <p style="color:red;">
+										<strong><?php //esc_html_e( '*This field is required' ); ?></strong>
+									</p> -->
 									<?php
 								}
 								?>
